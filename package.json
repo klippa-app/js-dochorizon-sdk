@@ -1,5 +1,5 @@
 {
-  "name": "@klippa-app/dochorizon-sdk",
+  "name": "@klippa/dochorizon-sdk",
   "version": "1.0.0",
   "description": "## NodeJS developer SDK for DocHorizon.",
   "main": "dist/index.js",
