@@ -10,6 +10,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "engines": {
+    "node": "^19.6.1"
+  },
   "scripts": {
     "test-local": "jest --testPathPattern=test/LocalTests",
     "test": "jest",
