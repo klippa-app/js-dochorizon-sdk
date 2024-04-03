@@ -5,6 +5,7 @@ import { TEST_TIMEOUT } from "../../../testVariables";
 
 describe("Storage Service Tests", () => {
   const base64Data: string = "test/testFiles/testpdf.pdf";
+  
   beforeAll(() => {
     DocHorizon.authenticate(getApiKeyFromEnv());
   });
@@ -12,6 +13,7 @@ describe("Storage Service Tests", () => {
   test(
     "That the saveToStorage function works correctly",
     async () => {
+      console.log(base64Data);
       const result: DocHorizonResponse =
         await DocHorizon.Storage.saveToStorage(base64Data);
 
