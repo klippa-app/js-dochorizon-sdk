@@ -15,7 +15,7 @@
   },
   "scripts": {
     "test-local": "jest --testPathPattern=test/LocalTests",
-    "test": "jest",
+    "test": "jest --testPathPattern=test/TotalTests",
     "build": "tsc",
     "upate-api": "ts-node getSwagger.ts"
   },

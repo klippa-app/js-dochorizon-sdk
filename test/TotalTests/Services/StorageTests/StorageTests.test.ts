@@ -13,7 +13,6 @@ describe("Storage Service Tests", () => {
   test(
     "That the saveToStorage function works correctly",
     async () => {
-      console.log(base64Data);
       const result: DocHorizonResponse =
         await DocHorizon.Storage.saveToStorage(base64Data);
 
