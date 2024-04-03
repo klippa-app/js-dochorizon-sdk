@@ -1,5 +1,5 @@
 import { FinancialService } from "../../src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service";
-import { TEST_TIMEOUT, TEST_TIMEOUT_LOCAL } from "../testVariables";
+import {STORAGE_ID, TEST_TIMEOUT, TEST_TIMEOUT_LOCAL} from "../testVariables";
 import { DocHorizon } from "../../index";
 import { getApiKeyFromEnv } from "../testFunctionUtils";
 import { DocHorizonResponse } from "../../src/ApiCommunicationsWrapper/Types/ApiTypes";
@@ -10,6 +10,7 @@ import unpackDocHorizonData = APIFunctionalities.unpackDocHorizonData;
 describe("CAPTURE FINANCIAL DOCUMENT TESTS", () => {
   const base64Data: string = "test/testFiles/testpdf.pdf";
   const wrongDoc: string = "test/testFiles/somedoc.txt";
+  let docHorizonStorageId: string = '';
   const document: DocHorizonDocument = {
     data: base64Data,
     content_type: "application/json",
@@ -17,6 +18,9 @@ describe("CAPTURE FINANCIAL DOCUMENT TESTS", () => {
 
   beforeAll(() => {
     DocHorizon.authenticate(getApiKeyFromEnv());
+    if(STORAGE_ID !== undefined) {
+      docHorizonStorageId = STORAGE_ID
+    }
   });
 
   it(
@@ -51,7 +55,6 @@ describe("CAPTURE FINANCIAL DOCUMENT TESTS", () => {
   it(
     "should be succesful when supplying a dochorizon storage id instead of a data",
     async () => {
-      const docHorizonStorageId = "4f990095-a623-11ee-bcbc-02d158bb9375";
       const res = await FinancialService.capture(docHorizonStorageId);
       expect(res.docHorizonData.result).toEqual("success");
     },

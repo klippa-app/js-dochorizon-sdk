@@ -1,7 +1,7 @@
 import { JSONBodyBuilder } from "../../src/ApiCommunicationsWrapper/JSONBodyBuilder";
 import { Endpoint } from "../../src/ApiCommunicationsWrapper/Types/ApiTypes";
-import fs from "fs";
 import { DocHorizonRequestData } from "../../src/ApiCommunicationsWrapper/Types/UserOptionsTypes";
+import fs from "fs";
 
 describe("JSON Body Builder Tests", () => {
   const financialPath = "/api/services/document_capturing/v1/financial";
@@ -21,18 +21,18 @@ describe("JSON Body Builder Tests", () => {
     expect(JSONBody).not.toContain("string");
     expect(Object.keys(JSONBody).length).toBeGreaterThan(0);
     expect(Object.keys(JSONBody)).toContain("documents");
-  });
+  }, 60000);
 
   it("should throw no endpointdata error if incorrect path provided", () => {
     const otherEndpoint: Endpoint = { url: "wrongurlhahaha", method: "POST" };
     expect(() => {
       JSONBodyBuilder.buildBody(otherEndpoint, { documents: {} });
     }).toThrow(/^No EndpointData could be found!$/);
-  });
+  }, 60000);
 
   test("that no document provided error will not be thrown if there is data field in the bodyData provided", () => {
     expect(() => {
       JSONBodyBuilder.buildBody(endpoint, { documents: { data: "somedata" } });
     }).not.toThrow(/^No document provided!$/);
-  });
+  }, 60000);
 });

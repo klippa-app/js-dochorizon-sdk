@@ -8,9 +8,19 @@ import { PROMPT_JOB, PROMPT_SLUG, TEST_TIMEOUT } from "../../../testVariables";
 
 describe("Prompt Service Tests", () => {
   const base64Data: string = "test/testFiles/testpdf.pdf";
-
+  let prompt_slug: string;
+  let prompt_job: string;
+  
   beforeAll(() => {
     DocHorizon.authenticate(getApiKeyFromEnv());
+    prompt_slug = "";
+    prompt_job = "";
+    if(PROMPT_SLUG !== undefined) {
+      prompt_slug = PROMPT_SLUG;
+    }
+    if(PROMPT_JOB !== undefined) {
+      prompt_job = PROMPT_JOB;
+    }
   });
 
   test(
@@ -18,7 +28,7 @@ describe("Prompt Service Tests", () => {
     async () => {
       const result: DocHorizonResponse = await DocHorizon.Prompt.capture(
         base64Data,
-        PROMPT_SLUG,
+        prompt_slug,
       );
 
       expect(result.httpCode).toEqual(200);
@@ -57,7 +67,7 @@ describe("Prompt Service Tests", () => {
     async () => {
       const result: DocHorizonResponse = await DocHorizon.Prompt.captureAsync(
         base64Data,
-        PROMPT_SLUG,
+        prompt_slug,
       );
 
       expect(result.httpCode).toEqual(200);
@@ -71,7 +81,7 @@ describe("Prompt Service Tests", () => {
     "That the getAsyncStatus function works correctly",
     async () => {
       const statusResult: DocHorizonResponse =
-        await DocHorizon.Prompt.getAsyncStatus(PROMPT_SLUG, PROMPT_JOB);
+        await DocHorizon.Prompt.getAsyncStatus(prompt_slug, prompt_job);
 
       expect(statusResult.httpCode).toEqual(200);
       expect(statusResult.docHorizonData.result).toBeDefined();
@@ -84,7 +94,7 @@ describe("Prompt Service Tests", () => {
     "That the getLogsOfAsyncJob function works correctly",
     async () => {
       const logsResult: DocHorizonResponse =
-        await DocHorizon.Prompt.getLogsOfAsyncJob(PROMPT_SLUG, PROMPT_JOB);
+        await DocHorizon.Prompt.getLogsOfAsyncJob(prompt_slug, prompt_job);
 
       expect(logsResult.httpCode).toEqual(200);
       expect(logsResult.docHorizonData.result).toBeDefined();
@@ -98,12 +108,12 @@ describe("Prompt Service Tests", () => {
     async () => {
       const result: DocHorizonResponse = await DocHorizon.Prompt.captureAsync(
         base64Data,
-        PROMPT_SLUG,
+        prompt_slug,
       );
       const job_id: string = unpackAsyncPostResult(result);
 
       const removeResult: DocHorizonResponse =
-        await DocHorizon.Prompt.removeAsyncJob(PROMPT_SLUG, job_id);
+        await DocHorizon.Prompt.removeAsyncJob(prompt_slug, job_id);
 
       expect(removeResult.httpCode).toEqual(200);
       expect(removeResult.docHorizonData.result).toBeDefined();
@@ -116,7 +126,7 @@ describe("Prompt Service Tests", () => {
     "That the getAsyncJobs function works correctly",
     async () => {
       const jobs: DocHorizonResponse =
-        await DocHorizon.Prompt.getAsyncJobs(PROMPT_SLUG);
+        await DocHorizon.Prompt.getAsyncJobs(prompt_slug);
 
       expect(jobs.httpCode).toEqual(200);
       expect(jobs.docHorizonData.result).toBeDefined();
@@ -129,7 +139,7 @@ describe("Prompt Service Tests", () => {
     "That the getListOfJobIds function works correctly",
     async () => {
       const jobs: string[] =
-        await DocHorizon.Prompt.getListOfJobIds(PROMPT_SLUG);
+        await DocHorizon.Prompt.getListOfJobIds(prompt_slug);
 
       expect(Array.isArray(jobs)).toBeTruthy();
       expect(jobs.length).toBeGreaterThan(0);
@@ -141,7 +151,7 @@ describe("Prompt Service Tests", () => {
     "That the getJsonSchema function works correctly",
     async () => {
       const schema: DocHorizonResponse =
-        await DocHorizon.Prompt.getJsonSchema(PROMPT_SLUG);
+        await DocHorizon.Prompt.getJsonSchema(prompt_slug);
 
       expect(schema.httpCode).toEqual(200);
       expect(schema.docHorizonData.result).toBeDefined();

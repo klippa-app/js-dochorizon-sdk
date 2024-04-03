@@ -10,15 +10,19 @@ import { STORAGE_ID, TEST_TIMEOUT } from "../../testVariables";
 describe("API functions tests", () => {
   const base64Data: string = "test/testFiles/testpdf.pdf";
   const wrongDoc: string = "test/testFiles/somedoc.txt";
+  let docHorizonStorageId: string = ''
   const document: DocHorizonDocument = {
     data: base64Data,
     content_type: "application/json",
   };
-
+  
   beforeAll(() => {
     DocHorizon.authenticate(getApiKeyFromEnv());
+    if(STORAGE_ID !== undefined) {
+      docHorizonStorageId = STORAGE_ID
+    }
   });
-
+  
   it(
     "should have a success value in the result field if proper request is done with options",
     async () => {
@@ -51,7 +55,7 @@ describe("API functions tests", () => {
   it(
     "should be successful when supplying a dochorizon storage id instead of a data",
     async () => {
-      const res = await FinancialService.capture(STORAGE_ID);
+      const res = await FinancialService.capture(docHorizonStorageId);
       expect(res.docHorizonData.result).toEqual("success");
     },
     TEST_TIMEOUT,

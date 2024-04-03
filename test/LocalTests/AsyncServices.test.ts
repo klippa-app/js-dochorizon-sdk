@@ -11,9 +11,20 @@ describe("Async Services Test", () => {
   const document: DocHorizonDocument = {
     data: "test/testFiles/testpdf.pdf",
   };
-
+  
+  let prompt_slug: string;
+  let prompt_job: string;
+  
   beforeAll(() => {
     DocHorizon.authenticate(getApiKeyFromEnv());
+    prompt_slug = "";
+    prompt_job = "";
+    if(PROMPT_SLUG !== undefined) {
+      prompt_slug = PROMPT_SLUG;
+    }
+    if(PROMPT_JOB !== undefined) {
+      prompt_job = PROMPT_JOB;
+    }
   });
 
   it(
@@ -21,7 +32,7 @@ describe("Async Services Test", () => {
     async () => {
       const res = await PromptBuilderService.captureAsync(
         document,
-        PROMPT_SLUG,
+        prompt_slug,
       );
       const unpacked: AsyncJobCreationResult | undefined =
         unpackAsyncPostResult(res);
@@ -37,8 +48,8 @@ describe("Async Services Test", () => {
     "should return a proper result upon doing a get request for status",
     async () => {
       const res = await PromptBuilderService.getAsyncStatus(
-        PROMPT_SLUG,
-        PROMPT_JOB,
+        prompt_slug,
+        prompt_job,
       );
       expect(res.httpCode).toEqual(200);
       expect(res.docHorizonData.result).toEqual("success");
@@ -52,7 +63,7 @@ describe("Async Services Test", () => {
     async () => {
       const res = await PromptBuilderService.captureAsync(
         document,
-        PROMPT_SLUG,
+        prompt_slug,
         {
           webhook: { url: "https://someurl.com", types: "on_finish" },
         },
