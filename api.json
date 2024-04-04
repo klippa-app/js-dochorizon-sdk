@@ -3,7 +3,7 @@
   "info": {
     "title": "Klippa DocHorizon",
     "description": "This is the documentation of the Klippa DocHorizon REST API.",
-    "version": "v1.7.0-rc1-f9e64bd2"
+    "version": "v1.7.0-rc2-44b1d23f"
   },
   "servers": [
     {
@@ -5362,20 +5362,8 @@
           "date_details": {
             "$ref": "#/components/schemas/Bank_statement_outputDateDetailsComponent"
           },
-          "fraud": {
-            "description": "Value of any type, including null",
-            "nullable": true
-          },
-          "keyword_matching": {
-            "description": "Value of any type, including null",
-            "nullable": true
-          },
           "ocr": {
             "$ref": "#/components/schemas/Bank_statement_outputOCRComponent"
-          },
-          "quality": {
-            "description": "Value of any type, including null",
-            "nullable": true
           },
           "transactions": {
             "$ref": "#/components/schemas/Bank_statement_outputTransactionsComponent"
@@ -5386,10 +5374,7 @@
           "bank",
           "card_holder",
           "date_details",
-          "fraud",
-          "keyword_matching",
           "ocr",
-          "quality",
           "transactions"
         ]
       },
@@ -5487,8 +5472,11 @@
           "vertices": {
             "type": "array",
             "items": {
-              "type": "number",
-              "format": "double"
+              "type": "array",
+              "items": {
+                "type": "number",
+                "format": "double"
+              }
             }
           }
         },
@@ -5653,6 +5641,21 @@
           "text"
         ]
       },
+      "Bank_statement_outputOutput": {
+        "type": "object",
+        "properties": {
+          "components": {
+            "$ref": "#/components/schemas/Bank_statement_outputBankStatementComponents"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "description": "The response given by the Document Capture API.",
+        "required": [
+          "components"
+        ]
+      },
       "Bank_statement_outputTransaction": {
         "type": "object",
         "properties": {
@@ -5701,33 +5704,11 @@
           "transactions"
         ]
       },
-      "Bank_statementOutput": {
-        "type": "object",
-        "properties": {
-          "components": {
-            "$ref": "#/components/schemas/Bank_statement_outputBankStatementComponents"
-          },
-          "version": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "description": "The response given by the Document Capture API.",
-        "required": [
-          "components",
-          "version"
-        ]
-      },
       "Bank_statementResponse": {
         "type": "object",
         "properties": {
           "data": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Bank_statementOutput"
-              }
-            ],
-            "nullable": true
+            "$ref": "#/components/schemas/Bank_statement_outputOutput"
           },
           "request_id": {
             "type": "string",
@@ -5961,6 +5942,14 @@
             },
             "description": "A list of documents to process."
           },
+          "preset": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Generic_document_inputInputPreset"
+              }
+            ],
+            "nullable": true
+          },
           "webhook": {
             "allOf": [
               {
@@ -5972,6 +5961,7 @@
         },
         "required": [
           "documents",
+          "preset",
           "webhook"
         ]
       },
@@ -5984,10 +5974,19 @@
               "$ref": "#/components/schemas/Generic_document_inputDocument"
             },
             "description": "A list of documents to process."
+          },
+          "preset": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Generic_document_inputInputPreset"
+              }
+            ],
+            "nullable": true
           }
         },
         "required": [
-          "documents"
+          "documents",
+          "preset"
         ]
       },
       "Document-Capturing-Financial-AsyncInput": {
@@ -7581,6 +7580,15 @@
               "$ref": "#/components/schemas/Financial_outputNormalizedValueFloat"
             }
           },
+          "discounts": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Financial_outputDiscountValue"
+              }
+            }
+          },
           "payments": {
             "type": "array",
             "items": {
@@ -7595,6 +7603,7 @@
           "amount_change",
           "amount_shipping",
           "amount_tip",
+          "discounts",
           "payments"
         ]
       },
@@ -7624,6 +7633,12 @@
             ],
             "nullable": true
           },
+          "discounts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Financial_outputDiscount"
+            }
+          },
           "payments": {
             "type": "array",
             "items": {
@@ -7636,6 +7651,7 @@
           "amount_shipping",
           "amount_tip",
           "candidates",
+          "discounts",
           "payments"
         ]
       },
@@ -7684,7 +7700,7 @@
             }
           },
           "verification": {
-            "$ref": "#/components/schemas/Financial_outputBankdetailsBankdetailsdataVerification"
+            "$ref": "#/components/schemas/Financial_outputVerification"
           }
         },
         "required": [
@@ -7698,28 +7714,6 @@
           "domestic_branch_code",
           "generated",
           "verification"
-        ]
-      },
-      "Financial_outputBankdetailsBankdetailsdataVerification": {
-        "type": "object",
-        "properties": {
-          "checksum": {
-            "type": "boolean",
-            "nullable": true
-          },
-          "length": {
-            "type": "boolean",
-            "nullable": true
-          },
-          "structure": {
-            "type": "boolean",
-            "nullable": true
-          }
-        },
-        "required": [
-          "checksum",
-          "length",
-          "structure"
         ]
       },
       "Financial_outputBarcode": {
@@ -7785,6 +7779,54 @@
           "value"
         ]
       },
+      "Financial_outputChainLiabilityCandidates": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Financial_outputNormalizedValueFloat"
+            }
+          },
+          "bank_account_number": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Financial_outputNormalizedValueStr"
+            }
+          }
+        },
+        "required": [
+          "amount",
+          "bank_account_number"
+        ]
+      },
+      "Financial_outputChainLiabilityComponent": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "bank_account_number": {
+            "type": "string",
+            "nullable": true
+          },
+          "candidates": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Financial_outputChainLiabilityCandidates"
+              }
+            ],
+            "nullable": true
+          }
+        },
+        "required": [
+          "amount",
+          "bank_account_number",
+          "candidates"
+        ]
+      },
       "Financial_outputCoCNumber": {
         "type": "object",
         "properties": {
@@ -7797,7 +7839,7 @@
           "verifications": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/Financial_outputPyocrComponentsOutputComponentsRelationVerification"
+                "$ref": "#/components/schemas/Financial_outputRelationVerification"
               }
             ],
             "nullable": true
@@ -7831,7 +7873,7 @@
           "verifications": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/Financial_outputPyocrComponentsOutputComponentsRelationVerification"
+                "$ref": "#/components/schemas/Financial_outputRelationVerification"
               }
             ],
             "nullable": true
@@ -7946,6 +7988,89 @@
           "date_of_service_end",
           "date_of_service_start",
           "payment_due_date"
+        ]
+      },
+      "Financial_outputDiscount": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "date": {
+            "type": "string",
+            "nullable": true
+          },
+          "percentage": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "amount",
+          "date",
+          "percentage",
+          "type"
+        ]
+      },
+      "Financial_outputDiscountValue": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "$ref": "#/components/schemas/Financial_outputNormalizedValueFloat"
+          },
+          "date": {
+            "$ref": "#/components/schemas/Financial_outputNormalizedValueStr"
+          },
+          "percentage": {
+            "$ref": "#/components/schemas/Financial_outputNormalizedValueFloat"
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "amount",
+          "date",
+          "percentage",
+          "type"
+        ]
+      },
+      "Financial_outputDistanceTraveled": {
+        "type": "object",
+        "properties": {
+          "unit": {
+            "type": "string"
+          },
+          "value": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "required": [
+          "unit",
+          "value"
+        ]
+      },
+      "Financial_outputDistanceTraveledValue": {
+        "type": "object",
+        "properties": {
+          "unit": {
+            "$ref": "#/components/schemas/Financial_outputNormalizedValueStr"
+          },
+          "value": {
+            "$ref": "#/components/schemas/Financial_outputNormalizedValueFloat"
+          }
+        },
+        "required": [
+          "unit",
+          "value"
         ]
       },
       "Financial_outputDocumentClassifierCandidates": {
@@ -8206,6 +8331,14 @@
             ],
             "nullable": true
           },
+          "chain_liability": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Financial_outputChainLiabilityComponent"
+              }
+            ],
+            "nullable": true
+          },
           "data_matching": {
             "allOf": [
               {
@@ -8309,11 +8442,28 @@
               }
             ],
             "nullable": true
+          },
+          "transport_details": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Financial_outputTransportDetailsComponent"
+              }
+            ],
+            "nullable": true
+          },
+          "travel_details": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Financial_outputTravelDetailsComponent"
+              }
+            ],
+            "nullable": true
           }
         },
         "required": [
           "amount_details",
           "barcode",
+          "chain_liability",
           "data_matching",
           "date_details",
           "document_classification",
@@ -8326,7 +8476,9 @@
           "ocr",
           "payment_details",
           "project_code",
-          "reference_details"
+          "reference_details",
+          "transport_details",
+          "travel_details"
         ]
       },
       "Financial_outputKeywordMatch": {
@@ -9400,18 +9552,6 @@
           "value"
         ]
       },
-      "Financial_outputPyocrComponentsOutputComponentsRelationVerification": {
-        "type": "object",
-        "properties": {
-          "is_valid": {
-            "type": "boolean",
-            "nullable": true
-          }
-        },
-        "required": [
-          "is_valid"
-        ]
-      },
       "Financial_outputReferenceDetailCandidates": {
         "type": "object",
         "properties": {
@@ -9433,6 +9573,12 @@
               "$ref": "#/components/schemas/Financial_outputNormalizedValueStr"
             }
           },
+          "shop_number": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Financial_outputNormalizedValueStr"
+            }
+          },
           "transaction_number": {
             "type": "array",
             "items": {
@@ -9444,6 +9590,7 @@
           "credit_note_number",
           "order_number",
           "purchase_order_number",
+          "shop_number",
           "transaction_number"
         ]
       },
@@ -9510,6 +9657,12 @@
               "$ref": "#/components/schemas/Financial_outputNormalizedValueStr"
             }
           },
+          "eori_number": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Financial_outputNormalizedValueStr"
+            }
+          },
           "fiscal_number": {
             "type": "array",
             "items": {
@@ -9540,6 +9693,7 @@
           "bank",
           "coc_number",
           "email",
+          "eori_number",
           "fiscal_number",
           "phone",
           "vat_number",
@@ -9615,6 +9769,10 @@
             "type": "string",
             "nullable": true
           },
+          "eori_number": {
+            "type": "string",
+            "nullable": true
+          },
           "fiscal_number": {
             "type": "string",
             "nullable": true
@@ -9642,6 +9800,7 @@
           "candidates",
           "coc_number",
           "email",
+          "eori_number",
           "fiscal_number",
           "phone",
           "vat_number",
@@ -9673,6 +9832,18 @@
         },
         "required": [
           "match"
+        ]
+      },
+      "Financial_outputRelationVerification": {
+        "type": "object",
+        "properties": {
+          "is_valid": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "required": [
+          "is_valid"
         ]
       },
       "Financial_outputTaxComponent": {
@@ -9813,6 +9984,80 @@
           "value"
         ]
       },
+      "Financial_outputTransportCandidates": {
+        "type": "object",
+        "properties": {
+          "package_number": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Financial_outputNormalizedValueStr"
+            }
+          }
+        },
+        "required": [
+          "package_number"
+        ]
+      },
+      "Financial_outputTransportDetailsComponent": {
+        "type": "object",
+        "properties": {
+          "candidates": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Financial_outputTransportCandidates"
+              }
+            ],
+            "nullable": true
+          },
+          "package_number": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "candidates",
+          "package_number"
+        ]
+      },
+      "Financial_outputTravelDetailsComponent": {
+        "type": "object",
+        "properties": {
+          "candidates": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Financial_outputTravelsDetailsCandidates"
+              }
+            ],
+            "nullable": true
+          },
+          "distance_traveled": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Financial_outputDistanceTraveled"
+              }
+            ],
+            "nullable": true
+          }
+        },
+        "required": [
+          "candidates",
+          "distance_traveled"
+        ]
+      },
+      "Financial_outputTravelsDetailsCandidates": {
+        "type": "object",
+        "properties": {
+          "distance_traveled": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Financial_outputDistanceTraveledValue"
+            }
+          }
+        },
+        "required": [
+          "distance_traveled"
+        ]
+      },
       "Financial_outputVATNumber": {
         "type": "object",
         "properties": {
@@ -9825,7 +10070,7 @@
           "verifications": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/Financial_outputPyocrComponentsOutputComponentsRelationVerification"
+                "$ref": "#/components/schemas/Financial_outputRelationVerification"
               }
             ],
             "nullable": true
@@ -9859,7 +10104,7 @@
           "verifications": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/Financial_outputPyocrComponentsOutputComponentsRelationVerification"
+                "$ref": "#/components/schemas/Financial_outputRelationVerification"
               }
             ],
             "nullable": true
@@ -9918,6 +10163,28 @@
           "confidence",
           "coordinates",
           "value"
+        ]
+      },
+      "Financial_outputVerification": {
+        "type": "object",
+        "properties": {
+          "checksum": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "length": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "structure": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "required": [
+          "checksum",
+          "length",
+          "structure"
         ]
       },
       "Financial_outputWord": {

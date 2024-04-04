@@ -3,7 +3,8 @@ const fs = require('fs');
 const yaml = require('js-yaml');
 
 const sourceUrls = {
-    apiSpec: 'https://test.dochorizon.klippa.com/api/open-api.yaml'
+    apiSpec: 'https://test.dochorizon.klippa.com/api/open-api.yaml',
+    prodApiSpec: 'https://dochorizon.klippa.com/api/open-api.yaml'
 }
 
 const filePaths = {
@@ -14,6 +15,7 @@ const filePaths = {
 
 interface SwaggerOptions {
     useTestUrl?: boolean;
+    production?: boolean;
 }
 
 
@@ -22,11 +24,12 @@ Method that gets the open api spec and turns it into a json
 in the future this json will be used for gathering info about endpoints
 getting the right schemas to create post payloads, etc.
  */
-export async function getSwagger(options: SwaggerOptions = { useTestUrl: false }){
+export async function getSwagger(options: SwaggerOptions = { useTestUrl: false, production: false }){
 
-    const { useTestUrl } = options;
-
-    return new Promise<void>((resolve) => https.get(sourceUrls.apiSpec, (res: any) => {
+    const { useTestUrl, production } = options;
+    const apiSpec = production ? sourceUrls.prodApiSpec : sourceUrls.apiSpec;
+    
+    return new Promise<void>((resolve) => https.get(apiSpec, (res: any) => {
         // create write stream for yaml file
         const yamlData = fs.createWriteStream(filePaths.apiYaml);
 
@@ -49,4 +52,5 @@ export async function getSwagger(options: SwaggerOptions = { useTestUrl: false }
 }
 
 const useTestUrl = (process.argv[2] === "true");
-getSwagger({useTestUrl}).finally(() => console.log("done!"));
+const production = (process.argv[3] === "true");
+getSwagger({useTestUrl, production}).finally(() => console.log("done!"));

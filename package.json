@@ -18,7 +18,7 @@
     "test": "jest --testPathPattern=test/TotalTests",
     "build": "tsc",
     "copy-api": "cp api.json ./dist",
-    "upate-api": "ts-node getSwagger.ts"
+    "update-api": "ts-node getSwagger.ts"
   },
   "repository": {
     "type": "git",
