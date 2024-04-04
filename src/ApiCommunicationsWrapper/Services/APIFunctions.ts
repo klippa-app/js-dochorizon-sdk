@@ -1,3 +1,5 @@
+import {API_URL} from "../vars";
+
 require("dotenv").config();
 
 import {
@@ -18,7 +20,7 @@ export namespace APIFunctionalities {
     requestProperties: RequestProperties,
   ): Promise<DocHorizonResponse> {
     const { endpoint, params, body } = requestProperties;
-    let url = `${process.env.API_URL}${endpoint.url}`;
+    let url = `${process.env.API_URL ?? API_URL}${endpoint.url}`;
 
     if (params?.PathParams) {
       url = processPathParameters(url, params.PathParams);
