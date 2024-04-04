@@ -17,6 +17,7 @@
     "skipLibCheck": true
   },
   "include": [
+    "api.json",
     "index.ts",
     "src/**/*"
   ]
