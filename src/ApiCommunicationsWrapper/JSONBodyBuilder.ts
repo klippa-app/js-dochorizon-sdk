@@ -10,10 +10,11 @@ import {
   SchemaProperties,
 } from "./Types/BodyBuilderTypes";
 import { DocHorizonRequestData } from "./Types/UserOptionsTypes";
+import path from "path";
 
 export class JSONBodyBuilder {
   private static JSONData: ApiJsonFile = JSON.parse(
-    fs.readFileSync("./api.json", "utf-8"),
+    fs.readFileSync(path.join(__dirname, "../../api.json"), "utf-8"),
   );
   private static endpointsList: Path = this.getPaths();
   private static endpointsData: Record<string, ApiEndpoint> =
