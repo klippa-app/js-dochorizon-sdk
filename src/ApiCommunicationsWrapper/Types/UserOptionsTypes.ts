@@ -11,6 +11,18 @@ type DocHorizonRequestBody = {
   options?: Record<string, any>;
 };
 
+/**
+ * A document object that can be used in capturing services
+ *
+ * @property data - string containing path pointing to a document
+ * @property url - string containing url pointing to a document
+ * @property file_id - string containing file id from DocHorizon storage pointing to a document
+ * @property content_type - string indicating the content type of the document
+ * @property password - string containing a password to use if the document is password-protected
+ * @property page_ranges - list containing (a) string(s) indicating which page ranges of the
+ * document to use
+ * @property filename - string indicating the name of the file
+ */
 type DocHorizonDocument = {
   data?: string;
   url?: string;

@@ -9,13 +9,22 @@ import {
 } from "../Types/ApiTypes";
 import fs from "fs";
 
+/**
+ * API functionalities namespace
+ *
+ * exposing all the general API functionalities such as authentication
+ */
 export namespace APIFunctionalities {
   let key: string = "";
-
+  
+  /**
+   * Initialize the API with an API key
+   * @param apikey - the api key to authenticate with
+   */
   export function initAPI(apikey: string) {
     key = apikey;
   }
-
+  
   export async function request(
     requestProperties: RequestProperties,
   ): Promise<DocHorizonResponse> {

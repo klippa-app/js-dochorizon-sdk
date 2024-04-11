@@ -14,6 +14,10 @@ import { AsyncOptions, AsyncStatus } from "../Async.types";
 import { AsyncService } from "../Async.service";
 import { ModelPromptBuilderConfigResult } from "../PromptBuilder/PromptBuilder.types";
 
+/**
+ * Model Builder Service
+ *
+ */
 export namespace ModelBuilderService {
   const baseUrl = "/api/services/document_capturing/v1/model_builder/models";
   const routeMapping = {
@@ -26,8 +30,17 @@ export namespace ModelBuilderService {
     schema: `${baseUrl}/{slug}/schema`,
     versions: `${baseUrl}/{slug}/versions`,
   };
-
-  //Capture data from a document using a specific model
+  
+  /**
+   * Capture data from a document using a model created with the DocHorizon Model Builder
+   * @param src - either a string indicating a document, or a DocHorizonDocument
+   * @see {@link DocHorizonDocument}
+   * @param slug - the slug of the model configuration you want to use
+   * @param version - the version of the model you want to use
+   *
+   * @returns a DocHorizonResponse containing the results from the financial document capturer
+   * @see {@link DocHorizonResponse}
+   */
   export async function capture(
     src: string | string[] | DocHorizonDocument | DocHorizonDocument[],
     slug: string,
@@ -55,8 +68,13 @@ export namespace ModelBuilderService {
       endpoint,
     });
   }
-
-  //Get all available models
+  
+  /**
+   * Get all available models for the used API key
+   *
+   * @returns a DocHorizonResponse containing all found models for the used API key
+   * @see {@link DocHorizonResponse}
+   */
   export async function getModels(): Promise<DocHorizonResponse> {
     const endpoint: Endpoint = {
       url: routeMapping.slugList,
@@ -65,8 +83,14 @@ export namespace ModelBuilderService {
 
     return await APIFunctionalities.request({ endpoint });
   }
-
-  //Get the Json schema of a model
+  
+  /**
+   * Get the JSON schema of a model
+   * @param slug - the slug of the model you want to get the JSON schema of
+   *
+   * @returns a DocHorizonResponse containing the JSON schema of a provided model
+   * @see {@link DocHorizonResponse}
+   */
   export async function getJsonSchema(
     slug: string,
   ): Promise<DocHorizonResponse> {
@@ -79,8 +103,21 @@ export namespace ModelBuilderService {
       params: { PathParams: { slug } },
     });
   }
-
-  //Capture data from a document using a specific model asynchronously
+  
+  /**
+   * Capture data from a document using a model created with the DocHorizon Model Builder
+   * asynchronously
+   * @param src - either a string indicating a document, or a DocHorizonDocument
+   * @see {@link DocHorizonDocument}
+   * @param slug - the slug of the model configuration you want to use
+   * @param version - the version of the model you want to use
+   * @param options - an object containing any asynchronous options you want to apply to the API
+   * call
+   * @see {@link AsyncOptions}
+   *
+   * @returns a DocHorizonResponse containing the results from the financial document capturer
+   * @see {@link DocHorizonResponse}
+   */
   export async function captureAsync(
     src: string | string[] | DocHorizonDocument | DocHorizonDocument[],
     slug: string,
@@ -100,8 +137,14 @@ export namespace ModelBuilderService {
       version,
     });
   }
-
-  //Get the status of a model builder async job
+  
+  /**
+   * Get the status of a model builder async job
+   * @param slug - the slug of model that was used in the job you wish to know the status of
+   * @param job_id - the id of the job you wish to know the status of
+   *
+   * @returns a DocHorizonResponse containing status information about the found model builder job
+   */
   export async function getAsyncStatus(
     slug: string,
     job_id: string,
@@ -116,8 +159,13 @@ export namespace ModelBuilderService {
       slug,
     });
   }
-
-  //Get all available model builder async jobs
+  
+  /**
+   * Get all available model builder async jobs for a particular model
+   * @param slug - the slug of the model you wish to get all async jobs from
+   *
+   * @returns a DocHorizonResponse containing all found async jobs for a particular model
+   */
   export async function getAsyncJobs(
     slug: string,
   ): Promise<DocHorizonResponse> {
@@ -130,14 +178,27 @@ export namespace ModelBuilderService {
       slug,
     });
   }
-
-  //Get a list of available model builder async jobs
+  
+  /**
+   * Get a list of all available model builder async jobs for a particular model
+   * @param slug - the slug of the model you wish to get all async jobs from
+   * @param status - optionally, provide an AsyncStatus to filter the results on
+   * @see {@link AsyncStatus} for available statusses
+   * @returns a list containing all found async job ids for a particular model
+   */
   export async function getListOfJobIds(slug: string, status?: AsyncStatus) {
     const res = await getAsyncJobs(slug);
     return await AsyncService.getListOfJobIds(res, status);
   }
-
-  //Remove a model builder async job
+  
+  /**
+   * Remove a model builder async job
+   * @param slug - the slug of the model you wish to delete
+   * @param job_id - the job_id of the async job you wish to delete
+   *
+   * @returns a DocHorizonResponse containing deletion information
+   * @see {@link DocHorizonResponse}
+   */
   export async function removeAsyncJob(
     slug: string,
     job_id: string,
@@ -152,8 +213,14 @@ export namespace ModelBuilderService {
       slug,
     });
   }
-
-  //Get logs of a model builder async job
+  
+  /**
+   * Get logs for a model builder async job
+   * @param slug - the slug of the model used
+   * @param job_id - the job id you wish to obtain logs from
+   *
+   * @returns a DocHorizonResponse containing any found logs for the provided slug and job id
+   */
   export async function getLogsOfAsyncJob(
     slug: string,
     job_id: string,
@@ -167,8 +234,15 @@ export namespace ModelBuilderService {
       job_id,
     });
   }
-
-  //Get results of a model builder async job
+  
+  /**
+   * Get the results of a model builder async job
+   * @param slug - the slug of the used model builder model
+   * @param job_id - the id of the job you wish to get the results off
+   *
+   * @returns a DocHorizonResponse containing the results from the model builder capturer
+   * @see {@link DocHorizonResponse}
+   */
   export async function getResultsOfAsyncJob(
     slug: string,
     job_id: string,
@@ -199,8 +273,12 @@ export namespace ModelBuilderService {
     }
     return [];
   }
-
-  //Get a list of available model builder configurations
+  
+  /**
+   * Get a list of all available model builder configurations for the used API key
+   *
+   * @returns a list of available models
+   */
   export async function getModelsList(): Promise<string[]> {
     const result = await getModels();
     const models: ModelPromptBuilderConfigResult[] | undefined =

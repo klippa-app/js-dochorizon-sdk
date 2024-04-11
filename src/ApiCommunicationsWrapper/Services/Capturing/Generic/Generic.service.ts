@@ -11,6 +11,10 @@ import { AsyncOptions, AsyncStatus } from "../Async.types";
 import { AsyncService } from "../Async.service";
 import { AdditionalBodyData } from "../../../Types/AdditionalBodyData";
 
+/**
+ * Generic Service
+ *
+ */
 export namespace GenericService {
   const baseUrl = "/api/services/document_capturing/v1/generic";
 
@@ -22,8 +26,16 @@ export namespace GenericService {
     asyncResults: `${baseUrl}/async/{job_id}/result`,
     captureXlsx: `${baseUrl}/xlsx`,
   };
-
-  //Capture data from a generic document
+  
+  /**
+   * Capture data from a document using the 'generic model'
+   *
+   * @param src - either a string indicating a document, or a DocHorizonDocument
+   * @see {@link DocHorizonDocument}
+   *
+   * @returns a DocHorizonResponse containing the results from the generic document capturer
+   * @see {@link DocHorizonResponse}
+   */
   export async function capture(
     src: string | string[] | DocHorizonDocument | DocHorizonDocument[],
   ): Promise<DocHorizonResponse> {
@@ -40,8 +52,20 @@ export namespace GenericService {
     const JsonBody = JSONBodyBuilder.buildBody(endpoint, body);
     return await APIFunctionalities.request({ endpoint, body: JsonBody });
   }
-
-  //Capture data from a generic document and get the results back as an XLSX
+  
+  /**
+   * Capture data from a document using the 'generic model' and get results back as an XLSX sheet
+   *
+   * @param src - either a string indicating a document, or a DocHorizonDocument
+   * @see {@link DocHorizonDocument}
+   *
+   * @param options - an object containing a field called 'output_target' which indicates
+   * whether to output the results as a 'Base64' string, or a DocHorizonStorage id
+   * @see {@link GenericXlsxOptions}
+   *
+   * @returns a DocHorizonResponse containing the results from the generic document capturer
+   * @see {@link DocHorizonResponse}
+   */
   export async function captureXlsx(
     src: string | string[] | DocHorizonDocument | DocHorizonDocument[],
     options?: GenericXlsxOptions,
@@ -65,8 +89,19 @@ export namespace GenericService {
     const JsonBody = JSONBodyBuilder.buildBody(endpoint, body);
     return await APIFunctionalities.request({ endpoint, body: JsonBody });
   }
-
-  //Capture data from a generic document asynchronously
+  
+  /**
+   * Capture data from a document using the 'generic model' asynchronously
+   *
+   * @param src - either a string indicating a document, or a DocHorizonDocument
+   * @see {@link DocHorizonDocument}
+   *
+   * @param options - an object containing all asynchronous options, except for Hitl
+   * @see {@link AsyncOptions}
+   *
+   * @returns a DocHorizonResponse containing the results from the async generic document capturer
+   * @see {@link DocHorizonResponse}
+   */
   export async function captureAsync(
     src: string | string[] | DocHorizonDocument | DocHorizonDocument[],
     options?: Omit<AsyncOptions, "hitl">,
@@ -84,8 +119,13 @@ export namespace GenericService {
       additionalBodyData,
     });
   }
-
-  //Get the status of a generic async job
+  
+  /**
+   * Get the status of a generic async job
+   * @param job_id - The job id of which you want to get the status
+   * @returns a DocHorizonResponse containing status information regarding the provided status
+   * @see {@link DocHorizonResponse}
+   */
   export async function getAsyncStatus(
     job_id: string,
   ): Promise<DocHorizonResponse> {
@@ -98,8 +138,13 @@ export namespace GenericService {
       job_id,
     });
   }
-
-  //Get all available generic async jobs
+  
+  /**
+   * Get all existing generic async jobs for the used API key
+   *
+   * @returns a DocHorizonResponse containing all found generic async jobs
+   * @see {@link DocHorizonResponse}
+   */
   export async function getAsyncJobs(): Promise<DocHorizonResponse> {
     const endpoint: Endpoint = {
       url: routeMapping.captureAsyncOrGetJobList,
@@ -110,14 +155,26 @@ export namespace GenericService {
       endpoint,
     });
   }
-
-  //Get a list of available generic async jobs
+  
+  /**
+   * Get a list of all existing generic async jobs for the used API key
+   *
+   * @param status - an optional status to filter the results on
+   * @see {@link AsyncStatus} for the available statusses
+   * @returns a list containing all found generic async job ids
+   * @see {@link DocHorizonResponse}
+   */
   export async function getListOfJobIds(status?: AsyncStatus) {
     const res = await getAsyncJobs();
     return await AsyncService.getListOfJobIds(res, status);
   }
-
-  //Remove a generic async job
+  
+  /**
+   * Remove a generic async job
+   * @param job_id - the id of the job to delete
+   * @returns a DocHorizonResponse containing information about the deletion
+   * @see {@link DocHorizonResponse}
+   */
   export async function removeAsyncJob(
     job_id: string,
   ): Promise<DocHorizonResponse> {
@@ -130,8 +187,12 @@ export namespace GenericService {
       job_id,
     });
   }
-
-  //Get logs of a generic async job
+  
+  /**
+   * Get logs of a generic async job
+   * @param job_id - The job id of which you want to obtain logs
+   * @returns DocHorizonResponse data containing found logs for the provided job id
+   */
   export async function getLogsOfAsyncJob(
     job_id: string,
   ): Promise<DocHorizonResponse> {
@@ -144,8 +205,13 @@ export namespace GenericService {
       job_id,
     });
   }
-
-  //Get results of a generic async job
+  
+  /**
+   * Get results of a generic async job
+   * @param job_id - The id of the job which you want to get the results from
+   * @returns a DocHorizonResponse containing results from the generic capturer
+   * @see {@link DocHorizonResponse}
+   */
   export async function getResultsOfAsyncJob(
     job_id: string,
   ): Promise<DocHorizonResponse> {

@@ -10,25 +10,68 @@ import { AuthService } from "./src/ApiCommunicationsWrapper/Services/Auth/Auth.s
 import { ModelBuilderService } from "./src/ApiCommunicationsWrapper/Services/Capturing/ModelBuilder/ModelBuilder.service";
 
 namespace DocHorizon {
-  export const Auth = AuthService;
-  export const Financial = FinancialService;
-  export const Generic = GenericService;
-  export const Prompt = PromptBuilderService;
-  //export const Model = ModelBuilderService;
-  //export const Cia = CIAService;
-  export const Capturing = CapturingService;
-  export const DocumentToolkit = DocumentToolkitService;
-  export const Storage = StorageService;
-
-  //Authenticate the API Functionalities with an api key
-  export function authenticate(apikey: string) {
-    APIFunctionalities.initAPI(apikey);
-  }
-
-  //Remove the API key and unauthenticate
-  export function unAuthenticate() {
-    APIFunctionalities.initAPI("");
-  }
+	/**
+	 * Auth Service
+	 * @namespace
+	 */
+	export const Auth = AuthService;
+	
+	/**
+	 * Financial Service
+	 * @namespace
+	 */
+	export const Financial = FinancialService;
+	
+	/**
+	 * Generic Service
+	 * @namespace
+	 */
+	export const Generic = GenericService;
+	
+	/**
+	 * Prompt Service
+	 * @namespace
+	 */
+	export const Prompt = PromptBuilderService;
+	//export const Model = ModelBuilderService;
+	//export const Cia = CIAService;
+	
+	/**
+	 * Capturing Service
+	 * @namespace
+	 */
+	export const Capturing = CapturingService;
+	
+	/**
+	 * DocumentToolkit Service
+	 * @namespace
+	 */
+	export const DocumentToolkit = DocumentToolkitService;
+	
+	/**
+	 * Storage Service
+	 * @namespace
+	 */
+	export const Storage = StorageService;
+	
+	//Authenticate the API Functionalities with an api key
+	/**
+	 * Authenticate the API with an API key
+	 *
+	 * @param apikey - the API key to authenticate with
+	 */
+	export function authenticate(apikey: string) {
+		APIFunctionalities.initAPI(apikey);
+	}
+	
+	/**
+	 * Unauthenticate by removing the API key
+	 * this will render the user unable to do any API requests
+	 * and will permanently remove the api key string from any vars/services
+	 */
+	export function unAuthenticate() {
+		APIFunctionalities.initAPI("");
+	}
 }
 
 export { DocHorizon };

@@ -2,12 +2,22 @@ import { DocHorizonResponse, Endpoint } from "../../Types/ApiTypes";
 import { APIFunctionalities } from "../APIFunctions";
 import { Model } from "./Capturing.types";
 
+/**
+ * The Capturing Service
+ *
+ * Exposing functions related to the capturing models
+ */
 export namespace CapturingService {
   const routeMapping = {
     listEnabledModels: "/api/services/document_capturing/v1/enabled_models",
   };
-
-  //Get all enabled capturing models for this Api key
+  
+  /**
+   * Get all enabled capturing models for this API key
+   *
+   * @returns a DocHorizonResponse containing the enabled capturing models for the used API key
+   * @see {@link DocHorizonResponse}
+   */
   export async function listEnabledModels(): Promise<DocHorizonResponse> {
     const endpoint: Endpoint = {
       url: routeMapping.listEnabledModels,
@@ -16,8 +26,13 @@ export namespace CapturingService {
 
     return await APIFunctionalities.request({ endpoint });
   }
-
-  //Get a list of enabled capturing models for this Api key
+  
+  /**
+   * Get a list of all enabled capturing models for this API key
+   *
+   * @returns a list of strings containing the enabled capturing models for the used
+   * API key
+   */
   export async function getListOfEnabledCapturingModels(): Promise<string[]> {
     const result = await listEnabledModels();
     const models: Model[] = unpackDocumentCapturingServicesResults(result);
