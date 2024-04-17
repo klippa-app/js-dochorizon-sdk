@@ -39,7 +39,7 @@ Authenticate the API with an API key
 
 #### Defined in
 
-[index.ts:63](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/index.ts#L63)
+[index.ts:62](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/index.ts#L62)
 
 ___
 
@@ -57,4 +57,4 @@ and will permanently remove the api key string from any vars/services
 
 #### Defined in
 
-[index.ts:72](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/index.ts#L72)
+[index.ts:71](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/index.ts#L71)

@@ -32,4 +32,4 @@ a DocHorizonResponse object containing found information on the used api key
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Auth/Auth.service.ts:18](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Auth/Auth.service.ts#L18)
+[src/ApiCommunicationsWrapper/Services/Auth/Auth.service.ts:18](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Auth/Auth.service.ts#L18)

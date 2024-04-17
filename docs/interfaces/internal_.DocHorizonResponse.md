@@ -23,7 +23,7 @@ The Api Response Data of the request  [ApiResponseData](internal_.ApiResponseDat
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Types/ApiTypes.ts:103](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Types/ApiTypes.ts#L103)
+[src/ApiCommunicationsWrapper/Types/ApiTypes.ts:103](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Types/ApiTypes.ts#L103)
 
 ___
 
@@ -35,4 +35,4 @@ the HTTP code of the request
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Types/ApiTypes.ts:102](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Types/ApiTypes.ts#L102)
+[src/ApiCommunicationsWrapper/Types/ApiTypes.ts:102](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Types/ApiTypes.ts#L102)

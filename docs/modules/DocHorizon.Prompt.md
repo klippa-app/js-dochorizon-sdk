@@ -34,7 +34,7 @@ Capture a document using a prompt builder configuration
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `src` | `string` \| `string`[] \| [`DocHorizonDocument`](internal_.md#dochorizondocument) \| [`DocHorizonDocument`](internal_.md#dochorizondocument)[] | the document in the form of a DocHorizonDocument object, or a string |
+| `src` | `string` \| `string`[] \| [`DocHorizonDocument`](../interfaces/internal_.DocHorizonDocument.md) \| [`DocHorizonDocument`](../interfaces/internal_.DocHorizonDocument.md)[] | the document in the form of a DocHorizonDocument object, or a string |
 | `slug` | `string` | the slug of the prompt builder configuration to use |
 
 #### Returns
@@ -45,12 +45,12 @@ DocHorizonResponse - A promise of type DocHorizonResponse
 
 **`See`**
 
- - [DocHorizonDocument](internal_.md#dochorizondocument)
+ - [DocHorizonDocument](../interfaces/internal_.DocHorizonDocument.md)
  - [DocHorizonResponse](../interfaces/internal_.DocHorizonResponse.md)
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts:41](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts#L41)
+[src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts:41](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts#L41)
 
 ___
 
@@ -64,9 +64,9 @@ Capture data from a document using a prompt configuration - async
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `src` | `string` \| `string`[] \| [`DocHorizonDocument`](internal_.md#dochorizondocument) \| [`DocHorizonDocument`](internal_.md#dochorizondocument)[] | the document to capture data from. Can be given in the form of a string or a DocHorizonDocument. [DocHorizonDocument](internal_.md#dochorizondocument). Multiple strings or DocHorizonDocument types can be given in the form of an array. |
+| `src` | `string` \| `string`[] \| [`DocHorizonDocument`](../interfaces/internal_.DocHorizonDocument.md) \| [`DocHorizonDocument`](../interfaces/internal_.DocHorizonDocument.md)[] | the document to capture data from. Can be given in the form of a string or a DocHorizonDocument. [DocHorizonDocument](../interfaces/internal_.DocHorizonDocument.md). Multiple strings or DocHorizonDocument types can be given in the form of an array. |
 | `slug` | `string` | slug of the prompt configuration to use |
-| `options?` | [`AsyncOptions`](internal_.md#asyncoptions) | Object of Asynchronous options |
+| `options?` | [`AsyncOptions`](../interfaces/internal_.AsyncOptions.md) | Object of Asynchronous options |
 
 #### Returns
 
@@ -76,12 +76,12 @@ Promise<DocHorizonResponse> - a promise of type DocHorizonResponse
 
 **`See`**
 
- - [AsyncOptions](internal_.md#asyncoptions)
+ - [AsyncOptions](../interfaces/internal_.AsyncOptions.md)
  - [DocHorizonResponse](../interfaces/internal_.DocHorizonResponse.md)
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts:111](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts#L111)
+[src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts:111](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts#L111)
 
 ___
 
@@ -109,7 +109,7 @@ a DocHorizonResponse containing available prompt builder async jobs
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts:161](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts#L161)
+[src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts:161](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts#L161)
 
 ___
 
@@ -138,7 +138,7 @@ a DocHorizonResponse containing found status information of the provided job id
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts:137](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts#L137)
+[src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts:137](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts#L137)
 
 ___
 
@@ -160,7 +160,7 @@ Promise<DocHorizonResponse> - A promise of type DocHorizonResponse
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts:69](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts#L69)
+[src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts:69](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts#L69)
 
 ___
 
@@ -178,7 +178,7 @@ a list of prompt builder configuration strings
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts:263](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts#L263)
+[src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts:263](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts#L263)
 
 ___
 
@@ -206,7 +206,7 @@ Promise<DocHorizonResponse> - a promise of type DocHorizonResponse
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts:85](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts#L85)
+[src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts:85](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts#L85)
 
 ___
 
@@ -235,7 +235,7 @@ a list of found job ids
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts:182](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts#L182)
+[src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts:182](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts#L182)
 
 ___
 
@@ -264,7 +264,7 @@ a DocHorizonResponse containing any found logs
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts:219](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts#L219)
+[src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts:219](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts#L219)
 
 ___
 
@@ -294,7 +294,7 @@ deletion
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts:244](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts#L244)
+[src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts:244](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts#L244)
 
 ___
 
@@ -323,4 +323,4 @@ a DocHorizonResponse containing information about the deletion
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts:196](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts#L196)
+[src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts:196](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/PromptBuilder/PromptBuilder.service.ts#L196)

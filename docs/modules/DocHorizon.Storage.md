@@ -24,7 +24,7 @@ Save a file to DocHorizon storage
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `src` | `string` \| [`DocHorizonDocument`](internal_.md#dochorizondocument) | either a string indicating a document, or a DocHorizonDocument |
+| `src` | `string` \| [`DocHorizonDocument`](../interfaces/internal_.DocHorizonDocument.md) | either a string indicating a document, or a DocHorizonDocument |
 
 #### Returns
 
@@ -34,9 +34,9 @@ a DocHorizonResponse indicating whether a file has been succesfully saved
 
 **`See`**
 
- - [DocHorizonDocument](internal_.md#dochorizondocument)
+ - [DocHorizonDocument](../interfaces/internal_.DocHorizonDocument.md)
  - [DocHorizonResponse](../interfaces/internal_.DocHorizonResponse.md)
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Storage/Storage.service.ts:25](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Storage/Storage.service.ts#L25)
+[src/ApiCommunicationsWrapper/Services/Storage/Storage.service.ts:25](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Storage/Storage.service.ts#L25)

@@ -6,6 +6,8 @@ import { RelationMatching } from "../Services/Capturing/Financial/Financial.type
  * Preset object to send to an endpoint
  *
  * @property slug - string indicating which preset configuration to use for the API call
+ *
+ * @interface
  */
 type Preset = {
   slug: string;
@@ -17,6 +19,8 @@ type Preset = {
  * @property id - id to identify the rule
  * @property keywords - a list of strings for each keyword to match with
  * @property regex - a regex to use to look for keywords to match with
+ *
+ * @interface
  */
 type Rule = {
   id: string;
@@ -34,6 +38,8 @@ type Rule = {
  * @property relation_matching - Object containing assignments and relation data to be used for
  * the request
  * @see {@link RelationMatching}
+ *
+ * @interface
  */
 type Components = {
   keyword_matching?: { rules: Rule[] };
@@ -44,6 +50,8 @@ type Components = {
  * Object to configure hitl for an API call
  *
  * @property slug - slug indicating which hitl configuration to use
+ *
+ * @interface
  */
 type Hitl = {
   slug: string;
@@ -76,6 +84,8 @@ type Hitl = {
  *
  * @property webhook - Webhook configuration object to be able to use webhook in an async request
  * @see {@link Webhook}
+ *
+ * @interface
  */
 export type AdditionalBodyData = {
   preset?: Preset;

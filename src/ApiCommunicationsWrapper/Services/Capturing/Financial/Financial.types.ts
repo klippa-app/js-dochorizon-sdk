@@ -9,12 +9,12 @@ type keyword_matching_keywords = string[];
  * @property id - string to identify the keyword matching rule
  * @property keywords - either a list of keywords or a string indicating a regex to use to look
  * for keywords
+ *
+ * @interface
  */
 type keyword_matching = {
-  //an id to identify the match
   id: string;
-
-  //supply a list of keywords OR provide a regex string
+  
   keywords: keyword_matching_keywords | keyword_matching_regex;
 };
 
@@ -24,13 +24,12 @@ type keyword_matching = {
  * @property fallback_id - id of a relation to use as a fallback
  * @property force_id - id of a relation to use no matter what
  * @property groups - a list of groups that this assignments belong to
+ *
+ * @interface
  */
 type Assignment = {
-  //id of relation to use as a fallback
   fallback_id?: string;
-  //id of a relation to use no matter what
   force_id?: string;
-  //what groups does this assignment belong to
   groups: string[];
 };
 
@@ -42,11 +41,11 @@ type Assignment = {
  *
  * @property merchant - merchant assignment object
  * @see {@link Assignment}
+ *
+ * @interface
  */
 type Assignments = {
-  //customer assignment object
   customer: Assignment;
-  //merchant assignment object
   merchant: Assignment;
 };
 
@@ -68,6 +67,8 @@ type Assignments = {
  * @property vat_number
  * @property website
  * @property zipcode
+ *
+ * @interface
  */
 type Relation = {
   id: string;
@@ -96,11 +97,11 @@ type Relation = {
  * @property relations - A list of relation objects, each containing information about the
  * relation(s) to match
  * @see {@link Relation}
+ *
+ * @interface
  */
 type RelationMatching = {
-  //determine what is considered a customer and what is considered a merchant
   assignments: Assignments;
-  //information about the relation(s) to match
   relations: Relation[];
 };
 
@@ -112,15 +113,12 @@ type RelationMatching = {
  * @see {@link keyword_matching}
  * @property relation_matching - a relation matching object to configure relation_matching
  * @see {@link RelationMatching}
+ *
+ * @interface
  */
 type FinancialOptions = {
-  //A string indicating which preset to use
   preset?: string;
-
-  //A list of keyword matching objects. Add one {object} for each rule you want to apply
   keyword_matching?: keyword_matching[];
-
-  //A relation matching configuration to add to the request
   relation_matching?: RelationMatching;
 };
 
@@ -128,6 +126,8 @@ type FinancialOptions = {
  * Financial Async Options is a combination of Financial Options and Async Options
  * @see {@link FinancialOptions}
  * @see {@link AsyncOptions}
+ *
+ * @interface
  */
 type FinancialAsyncOptions = FinancialOptions & AsyncOptions;
 
@@ -144,22 +144,28 @@ type Component = {
 
 /**
  * The results obtained from the financial presets endpoint
+ * @property components - a list of components found for the given preset
+ * @see {@link FinancialPresetComponent}
+ *
+ * @property name - name of the found preset
+ * @property slug - slug of the found preset
+ *
+ * @interface
  */
 export type FinancialPresetsResult = {
-  /**
-   * A list of components found for the given preset
-   */
   components: FinancialPresetComponent[];
-  /**
-   * The name of the preset
-   */
   name: string;
-  /**
-   * the slug of the preset
-   */
   slug: string;
 };
 
+/**
+ * Object depicting a financial preset component
+ *
+ * @property name - name of the component
+ * @property options - object containing a field whether the component is enabled
+ *
+ * @interface
+ */
 export type FinancialPresetComponent = {
   name: string;
   options: { enabled: boolean };

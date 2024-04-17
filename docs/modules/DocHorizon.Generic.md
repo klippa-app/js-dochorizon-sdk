@@ -32,7 +32,7 @@ Capture data from a document using the 'generic model'
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `src` | `string` \| `string`[] \| [`DocHorizonDocument`](internal_.md#dochorizondocument) \| [`DocHorizonDocument`](internal_.md#dochorizondocument)[] | either a string indicating a document, or a DocHorizonDocument |
+| `src` | `string` \| `string`[] \| [`DocHorizonDocument`](../interfaces/internal_.DocHorizonDocument.md) \| [`DocHorizonDocument`](../interfaces/internal_.DocHorizonDocument.md)[] | either a string indicating a document, or a DocHorizonDocument |
 
 #### Returns
 
@@ -42,12 +42,12 @@ a DocHorizonResponse containing the results from the generic document capturer
 
 **`See`**
 
- - [DocHorizonDocument](internal_.md#dochorizondocument)
+ - [DocHorizonDocument](../interfaces/internal_.DocHorizonDocument.md)
  - [DocHorizonResponse](../interfaces/internal_.DocHorizonResponse.md)
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts:39](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts#L39)
+[src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts:39](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts#L39)
 
 ___
 
@@ -61,8 +61,8 @@ Capture data from a document using the 'generic model' asynchronously
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `src` | `string` \| `string`[] \| [`DocHorizonDocument`](internal_.md#dochorizondocument) \| [`DocHorizonDocument`](internal_.md#dochorizondocument)[] | either a string indicating a document, or a DocHorizonDocument |
-| `options?` | [`Omit`](internal_.md#omit)\<[`AsyncOptions`](internal_.md#asyncoptions), ``"hitl"``\> | an object containing all asynchronous options, except for Hitl |
+| `src` | `string` \| `string`[] \| [`DocHorizonDocument`](../interfaces/internal_.DocHorizonDocument.md) \| [`DocHorizonDocument`](../interfaces/internal_.DocHorizonDocument.md)[] | either a string indicating a document, or a DocHorizonDocument |
+| `options?` | [`Omit`](internal_.md#omit)\<[`AsyncOptions`](../interfaces/internal_.AsyncOptions.md), ``"hitl"``\> | an object containing all asynchronous options, except for Hitl |
 
 #### Returns
 
@@ -72,13 +72,13 @@ a DocHorizonResponse containing the results from the async generic document capt
 
 **`See`**
 
- - [DocHorizonDocument](internal_.md#dochorizondocument)
- - [AsyncOptions](internal_.md#asyncoptions)
+ - [DocHorizonDocument](../interfaces/internal_.DocHorizonDocument.md)
+ - [AsyncOptions](../interfaces/internal_.AsyncOptions.md)
  - [DocHorizonResponse](../interfaces/internal_.DocHorizonResponse.md)
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts:105](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts#L105)
+[src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts:105](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts#L105)
 
 ___
 
@@ -92,8 +92,8 @@ Capture data from a document using the 'generic model' and get results back as a
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `src` | `string` \| `string`[] \| [`DocHorizonDocument`](internal_.md#dochorizondocument) \| [`DocHorizonDocument`](internal_.md#dochorizondocument)[] | either a string indicating a document, or a DocHorizonDocument |
-| `options?` | [`GenericXlsxOptions`](internal_.md#genericxlsxoptions) | an object containing a field called 'output_target' which indicates whether to output the results as a 'Base64' string, or a DocHorizonStorage id |
+| `src` | `string` \| `string`[] \| [`DocHorizonDocument`](../interfaces/internal_.DocHorizonDocument.md) \| [`DocHorizonDocument`](../interfaces/internal_.DocHorizonDocument.md)[] | either a string indicating a document, or a DocHorizonDocument |
+| `options?` | [`GenericXlsxOptions`](../interfaces/internal_.GenericXlsxOptions.md) | an object containing a field called 'output_target' which indicates whether to output the results as a 'Base64' string, or a DocHorizonStorage id |
 
 #### Returns
 
@@ -103,13 +103,13 @@ a DocHorizonResponse containing the results from the generic document capturer
 
 **`See`**
 
- - [DocHorizonDocument](internal_.md#dochorizondocument)
- - [GenericXlsxOptions](internal_.md#genericxlsxoptions)
+ - [DocHorizonDocument](../interfaces/internal_.DocHorizonDocument.md)
+ - [GenericXlsxOptions](../interfaces/internal_.GenericXlsxOptions.md)
  - [DocHorizonResponse](../interfaces/internal_.DocHorizonResponse.md)
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts:69](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts#L69)
+[src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts:69](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts#L69)
 
 ___
 
@@ -131,7 +131,7 @@ a DocHorizonResponse containing all found generic async jobs
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts:148](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts#L148)
+[src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts:148](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts#L148)
 
 ___
 
@@ -159,7 +159,7 @@ a DocHorizonResponse containing status information regarding the provided status
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts:129](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts#L129)
+[src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts:129](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts#L129)
 
 ___
 
@@ -188,7 +188,7 @@ a list containing all found generic async job ids
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts:167](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts#L167)
+[src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts:167](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts#L167)
 
 ___
 
@@ -212,7 +212,7 @@ DocHorizonResponse data containing found logs for the provided job id
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts:196](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts#L196)
+[src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts:196](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts#L196)
 
 ___
 
@@ -240,7 +240,7 @@ a DocHorizonResponse containing results from the generic capturer
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts:215](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts#L215)
+[src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts:215](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts#L215)
 
 ___
 
@@ -268,4 +268,4 @@ a DocHorizonResponse containing information about the deletion
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts:178](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts#L178)
+[src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts:178](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/Generic/Generic.service.ts#L178)

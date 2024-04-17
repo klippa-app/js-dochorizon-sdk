@@ -54,7 +54,6 @@ namespace DocHorizon {
 	 */
 	export const Storage = StorageService;
 	
-	//Authenticate the API Functionalities with an api key
 	/**
 	 * Authenticate the API with an API key
 	 *

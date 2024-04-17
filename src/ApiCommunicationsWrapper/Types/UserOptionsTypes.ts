@@ -22,6 +22,8 @@ type DocHorizonRequestBody = {
  * @property page_ranges - list containing (a) string(s) indicating which page ranges of the
  * document to use
  * @property filename - string indicating the name of the file
+ *
+ * @interface
  */
 type DocHorizonDocument = {
   data?: string;

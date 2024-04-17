@@ -23,28 +23,28 @@ The data returned by the API. Its contents are dependent of which service is use
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Types/ApiTypes.ts:57](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Types/ApiTypes.ts#L57)
+[src/ApiCommunicationsWrapper/Types/ApiTypes.ts:57](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Types/ApiTypes.ts#L57)
 
 ___
 
 ### data
 
-• `Optional` **data**: [`Record`](../modules/internal_.md#record)\<`string`, `any`\> \| [`Document`](../modules/internal_.md#document) \| [`RenderResult`](../modules/internal_.md#renderresult) \| [`Documents`](../modules/internal_.md#documents) \| [`AsyncJobList`](../modules/internal_.md#asyncjoblist) \| [`AsyncPostResult`](../modules/internal_.md#asyncpostresult) \| [`FinancialPresetsResult`](../modules/internal_.md#financialpresetsresult)[] \| [`ModelPromptBuilderConfigResult`](../modules/internal_.md#modelpromptbuilderconfigresult)[] \| [`Model`](../modules/internal_.md#model)[] \| [`Document`](../modules/internal_.md#document)[]
+• `Optional` **data**: [`Record`](../modules/internal_.md#record)\<`string`, `any`\> \| [`Document`](internal_.Document.md) \| [`RenderResult`](internal_.RenderResult.md) \| [`Documents`](internal_.Documents.md) \| [`AsyncJobList`](internal_.AsyncJobList.md) \| [`AsyncPostResult`](internal_.AsyncPostResult.md) \| [`FinancialPresetsResult`](internal_.FinancialPresetsResult.md)[] \| [`ModelPromptBuilderConfigResult`](internal_.ModelPromptBuilderConfigResult.md)[] \| [`Model`](internal_.Model.md)[] \| [`Document`](internal_.Document.md)[]
 
 the specific returned data, which type depends on which function used
-[FinancialPresetsResult](../modules/internal_.md#financialpresetsresult) FinancialPresetResult
-[ModelPromptBuilderConfigResult](../modules/internal_.md#modelpromptbuilderconfigresult) Model or Prompt Config Result
-[AsyncJobList](../modules/internal_.md#asyncjoblist) Async Job Lists Result
-[Model](../modules/internal_.md#model) Model results
-[Document](../modules/internal_.md#document) document data result
-[Documents](../modules/internal_.md#documents) document data result, but with page-ranges
-[RenderResult](../modules/internal_.md#renderresult) a list of rendered image data
-[AsyncPostResult](../modules/internal_.md#asyncpostresult) results from async post functions
+[FinancialPresetsResult](internal_.FinancialPresetsResult.md) FinancialPresetResult
+[ModelPromptBuilderConfigResult](internal_.ModelPromptBuilderConfigResult.md) Model or Prompt Config Result
+[AsyncJobList](internal_.AsyncJobList.md) Async Job Lists Result
+[Model](internal_.Model.md) Model results
+[Document](internal_.Document.md) document data result
+[Documents](internal_.Documents.md) document data result, but with page-ranges
+[RenderResult](internal_.RenderResult.md) a list of rendered image data
+[AsyncPostResult](internal_.AsyncPostResult.md) results from async post functions
 Or Record<string, any> for Anything else that can be mapped as K,V
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Types/ApiTypes.ts:81](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Types/ApiTypes.ts#L81)
+[src/ApiCommunicationsWrapper/Types/ApiTypes.ts:81](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Types/ApiTypes.ts#L81)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Types/ApiTypes.ts:56](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Types/ApiTypes.ts#L56)
+[src/ApiCommunicationsWrapper/Types/ApiTypes.ts:56](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Types/ApiTypes.ts#L56)
 
 ___
 
@@ -64,4 +64,4 @@ ___
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Types/ApiTypes.ts:55](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Types/ApiTypes.ts#L55)
+[src/ApiCommunicationsWrapper/Types/ApiTypes.ts:55](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Types/ApiTypes.ts#L55)

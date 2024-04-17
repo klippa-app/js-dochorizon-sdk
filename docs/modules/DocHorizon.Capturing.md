@@ -30,7 +30,7 @@ API key
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/DocumentCapturing/Capturing.service.ts:36](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/DocumentCapturing/Capturing.service.ts#L36)
+[src/ApiCommunicationsWrapper/Services/DocumentCapturing/Capturing.service.ts:36](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/DocumentCapturing/Capturing.service.ts#L36)
 
 ___
 
@@ -52,4 +52,4 @@ a DocHorizonResponse containing the enabled capturing models for the used API ke
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/DocumentCapturing/Capturing.service.ts:21](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/DocumentCapturing/Capturing.service.ts#L21)
+[src/ApiCommunicationsWrapper/Services/DocumentCapturing/Capturing.service.ts:21](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/DocumentCapturing/Capturing.service.ts#L21)

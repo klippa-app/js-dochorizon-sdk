@@ -34,8 +34,8 @@ Capture data from a document using the financial model
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `src` | `string` \| `string`[] \| [`DocHorizonDocument`](internal_.md#dochorizondocument) \| [`DocHorizonDocument`](internal_.md#dochorizondocument)[] | either a string indicating a document, or a DocHorizonDocument |
-| `options?` | [`FinancialOptions`](internal_.md#financialoptions) | an object containing any financial options to send with the request |
+| `src` | `string` \| `string`[] \| [`DocHorizonDocument`](../interfaces/internal_.DocHorizonDocument.md) \| [`DocHorizonDocument`](../interfaces/internal_.DocHorizonDocument.md)[] | either a string indicating a document, or a DocHorizonDocument |
+| `options?` | [`FinancialOptions`](../interfaces/internal_.FinancialOptions.md) | an object containing any financial options to send with the request |
 
 #### Returns
 
@@ -45,13 +45,13 @@ a DocHorizonResponse containing the results from the financial document capturer
 
 **`See`**
 
- - [DocHorizonDocument](internal_.md#dochorizondocument)
- - [FinancialOptions](internal_.md#financialoptions)
+ - [DocHorizonDocument](../interfaces/internal_.DocHorizonDocument.md)
+ - [FinancialOptions](../interfaces/internal_.FinancialOptions.md)
  - [DocHorizonResponse](../interfaces/internal_.DocHorizonResponse.md)
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts:143](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts#L143)
+[src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts:143](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts#L143)
 
 ___
 
@@ -65,8 +65,8 @@ Capture data from a financial document asynchronously
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `src` | `string` \| `string`[] \| [`DocHorizonDocument`](internal_.md#dochorizondocument) \| [`DocHorizonDocument`](internal_.md#dochorizondocument)[] | either a string indicating a document, or a DocHorizonDocument |
-| `options?` | [`FinancialAsyncOptions`](internal_.md#financialasyncoptions) | an object containing any financial async options to send with the request |
+| `src` | `string` \| `string`[] \| [`DocHorizonDocument`](../interfaces/internal_.DocHorizonDocument.md) \| [`DocHorizonDocument`](../interfaces/internal_.DocHorizonDocument.md)[] | either a string indicating a document, or a DocHorizonDocument |
+| `options?` | [`FinancialAsyncOptions`](../interfaces/internal_.FinancialAsyncOptions.md) | an object containing any financial async options to send with the request |
 
 #### Returns
 
@@ -74,12 +74,12 @@ Capture data from a financial document asynchronously
 
 **`See`**
 
- - [DocHorizonDocument](internal_.md#dochorizondocument)
- - [FinancialAsyncOptions](internal_.md#financialasyncoptions)
+ - [DocHorizonDocument](../interfaces/internal_.DocHorizonDocument.md)
+ - [FinancialAsyncOptions](../interfaces/internal_.FinancialAsyncOptions.md)
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts:174](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts#L174)
+[src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts:174](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts#L174)
 
 ___
 
@@ -101,7 +101,7 @@ a DocHorizonResponse containing all found financial async jobs
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts:222](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts#L222)
+[src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts:222](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts#L222)
 
 ___
 
@@ -129,7 +129,7 @@ a DocHorizonResponse containing status information regarding the provided status
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts:202](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts#L202)
+[src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts:202](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts#L202)
 
 ___
 
@@ -153,7 +153,7 @@ list of enabled components for the preset
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts:111](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts#L111)
+[src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts:111](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts#L111)
 
 ___
 
@@ -182,7 +182,7 @@ a list containing all found financial async job ids
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts:241](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts#L241)
+[src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts:241](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts#L241)
 
 ___
 
@@ -206,7 +206,7 @@ DocHorizonResponse data containing found logs for the provided job id
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts:270](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts#L270)
+[src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts:270](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts#L270)
 
 ___
 
@@ -228,7 +228,7 @@ a list of found preset strings for the provided API key
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts:94](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts#L94)
+[src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts:94](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts#L94)
 
 ___
 
@@ -250,7 +250,7 @@ a DocHorizonResponse containing found presets for the provided api key
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts:79](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts#L79)
+[src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts:79](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts#L79)
 
 ___
 
@@ -278,7 +278,7 @@ a DocHorizonResponse containing results from the financial capturer
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts:289](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts#L289)
+[src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts:289](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts#L289)
 
 ___
 
@@ -306,4 +306,4 @@ a DocHorizonResponse containing information about the deletion
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts:252](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts#L252)
+[src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts:252](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/Capturing/Financial/Financial.service.ts#L252)

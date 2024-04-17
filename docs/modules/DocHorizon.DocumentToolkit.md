@@ -44,7 +44,7 @@ a base64 data string of the merged result
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts:94](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts#L94)
+[src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts:94](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts#L94)
 
 ___
 
@@ -74,7 +74,7 @@ a string containing image data
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts:192](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts#L192)
+[src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts:192](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts#L192)
 
 ___
 
@@ -104,7 +104,7 @@ the split operation
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts:221](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts#L221)
+[src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts:221](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts#L221)
 
 ___
 
@@ -118,7 +118,7 @@ Obtain information about a provided document
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `src` | `string` \| [`DocHorizonDocument`](internal_.md#dochorizondocument) | the document in the form of a DocHorizonDocument object, or a string |
+| `src` | `string` \| [`DocHorizonDocument`](../interfaces/internal_.DocHorizonDocument.md) | the document in the form of a DocHorizonDocument object, or a string |
 
 #### Returns
 
@@ -128,12 +128,12 @@ a DocHorizonResponse containing response data from the Document Toolkit Info end
 
 **`See`**
 
- - [DocHorizonDocument](internal_.md#dochorizondocument)
+ - [DocHorizonDocument](../interfaces/internal_.DocHorizonDocument.md)
  - [DocHorizonResponse](../interfaces/internal_.DocHorizonResponse.md)
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts:46](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts#L46)
+[src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts:46](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts#L46)
 
 ___
 
@@ -147,8 +147,8 @@ Merge multiple documents into one
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `src` | `string`[] \| [`DocHorizonDocument`](internal_.md#dochorizondocument)[] | A list of strings or a list of DocHorizonDocument objects |
-| `options?` | [`MergeOptions`](internal_.md#mergeoptions) | an object containing merge options |
+| `src` | `string`[] \| [`DocHorizonDocument`](../interfaces/internal_.DocHorizonDocument.md)[] | A list of strings or a list of DocHorizonDocument objects |
+| `options?` | [`MergeOptions`](../interfaces/internal_.MergeOptions.md) | an object containing merge options |
 
 #### Returns
 
@@ -156,12 +156,12 @@ Merge multiple documents into one
 
 **`See`**
 
- - [DocHorizonDocument](internal_.md#dochorizondocument)
- - [MergeOptions](internal_.md#mergeoptions)
+ - [DocHorizonDocument](../interfaces/internal_.DocHorizonDocument.md)
+ - [MergeOptions](../interfaces/internal_.MergeOptions.md)
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts:66](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts#L66)
+[src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts:66](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts#L66)
 
 ___
 
@@ -175,8 +175,8 @@ Render a document as an image
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `src` | `string` \| [`DocHorizonDocument`](internal_.md#dochorizondocument) | either a string indicating a document, or a DocHorizonDocument |
-| `options` | [`RenderOptions`](internal_.md#renderoptions) | an object containing options for the render operation |
+| `src` | `string` \| [`DocHorizonDocument`](../interfaces/internal_.DocHorizonDocument.md) | either a string indicating a document, or a DocHorizonDocument |
+| `options` | [`RenderOptions`](../interfaces/internal_.RenderOptions.md) | an object containing options for the render operation |
 
 #### Returns
 
@@ -184,12 +184,12 @@ Render a document as an image
 
 **`See`**
 
- - [DocHorizonDocument](internal_.md#dochorizondocument)
- - [RenderOptions](internal_.md#renderoptions)
+ - [DocHorizonDocument](../interfaces/internal_.DocHorizonDocument.md)
+ - [RenderOptions](../interfaces/internal_.RenderOptions.md)
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts:146](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts#L146)
+[src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts:146](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts#L146)
 
 ___
 
@@ -203,7 +203,7 @@ Split a file into multiple files
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `src` | `string` \| [`DocHorizonDocument`](internal_.md#dochorizondocument) | either a string indicating a document, or a DocHorizonDocument |
+| `src` | `string` \| [`DocHorizonDocument`](../interfaces/internal_.DocHorizonDocument.md) | either a string indicating a document, or a DocHorizonDocument |
 | `options?` | [`SplitOptions`](internal_.md#splitoptions) | an object containing options in regards to the splitting proces |
 
 #### Returns
@@ -216,4 +216,4 @@ Split a file into multiple files
 
 #### Defined in
 
-[src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts:114](https://github.com/klippa-app/js-dochorizon-sdk/blob/d1a513f/src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts#L114)
+[src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts:114](https://github.com/klippa-app/js-dochorizon-sdk/blob/205a2fd/src/ApiCommunicationsWrapper/Services/DocumentToolkit/DocumentToolkit.service.ts#L114)
