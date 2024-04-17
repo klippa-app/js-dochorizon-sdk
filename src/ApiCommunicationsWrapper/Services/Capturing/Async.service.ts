@@ -17,6 +17,10 @@ import { parseDocHorizonDocumentsList } from "../DocHorizonDocumentFunctions";
 import { APIFunctionalities } from "../APIFunctions";
 import { JSONBodyBuilder } from "../../JSONBodyBuilder";
 
+/**
+ * Async Service
+ *
+ */
 export namespace AsyncService {
   export async function parseAsync(
     postProps: PostProps,

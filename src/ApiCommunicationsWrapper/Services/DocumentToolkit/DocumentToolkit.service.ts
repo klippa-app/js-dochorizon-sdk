@@ -22,6 +22,11 @@ import {
 import { AdditionalBodyData } from "../../Types/AdditionalBodyData";
 import { AsyncJobCreationResult } from "../Capturing/Async.types";
 
+/**
+ * Document Toolkit Service
+ *
+ * Exposes functions for various Document Toolkit operations
+ */
 export namespace DocumentToolkitService {
   const routeMapping = {
     info: "/api/services/document_toolkit/v1/info",
@@ -29,8 +34,15 @@ export namespace DocumentToolkitService {
     render: "/api/services/document_toolkit/v1/render",
     split: "/api/services/document_toolkit/v1/split",
   };
-
-  //Obtain information about a provided document
+  
+  /**
+   * Obtain information about a provided document
+   * @param src - the document in the form of a DocHorizonDocument object, or a string
+   * @see {@link DocHorizonDocument}
+   *
+   * @returns a DocHorizonResponse containing response data from the Document Toolkit Info endpoint
+   * @see {@link DocHorizonResponse}
+   */
   export async function info(
     src: string | DocHorizonDocument,
   ): Promise<DocHorizonResponse> {
@@ -42,8 +54,15 @@ export namespace DocumentToolkitService {
 
     return await APIFunctionalities.request({ body: JsonBody, endpoint });
   }
-
-  //Merge multiple documents into one
+  
+  /**
+   * Merge multiple documents into one
+   * @param src - A list of strings or a list of DocHorizonDocument objects
+   * @see {@link DocHorizonDocument}
+   *
+   * @param options - an object containing merge options
+   * @see {@link MergeOptions}
+   */
   export async function merge(
     src: string[] | DocHorizonDocument[],
     options?: MergeOptions,
@@ -64,8 +83,14 @@ export namespace DocumentToolkitService {
 
     return await APIFunctionalities.request({ body: JsonBody, endpoint });
   }
-
-  //Get file data or a file id of the result of a Merge operation
+  
+  /**
+   * Get the results of a merge operation in the form of actual filedata
+   * @param res - A DocHorizonResponse type, from the merge operation of the document toolkit
+   * @see {@link DocHorizonResponse}
+   *
+   * @returns a base64 data string of the merged result
+   */
   export async function getMergedResults(
     res: DocHorizonResponse,
   ): Promise<string> {
@@ -79,8 +104,13 @@ export namespace DocumentToolkitService {
 
     return "";
   }
-
-  //Split a file into multiple files
+  
+  /**
+   * Split a file into multiple files
+   * @param src - either a string indicating a document, or a DocHorizonDocument
+   * @param options - an object containing options in regards to the splitting proces
+   * @see {@link SplitOptions}
+   */
   export async function split(
     src: string | DocHorizonDocument,
     options?: SplitOptions,
@@ -105,8 +135,14 @@ export namespace DocumentToolkitService {
     const jsonBody = JSONBodyBuilder.buildBody(endpoint, body);
     return await APIFunctionalities.request({ endpoint, body: jsonBody });
   }
-
-  //Render a document as an image
+  
+  /**
+   * Render a document as an image
+   * @param src - either a string indicating a document, or a DocHorizonDocument
+   * @see {@link DocHorizonDocument}
+   * @param options - an object containing options for the render operation
+   * @see {@link RenderOptions}
+   */
   export async function render(
     src: string | DocHorizonDocument,
     options: RenderOptions,
@@ -142,8 +178,17 @@ export namespace DocumentToolkitService {
     const jsonBody = JSONBodyBuilder.buildBody(endpoint, body);
     return await APIFunctionalities.request({ body: jsonBody, endpoint });
   }
-
-  //Get image data of the result of a Render operation
+  
+  /**
+   * Get image data out of a render operation result
+   * @param res - The DocHorizonResponse from the Render Function
+   * @see {@link render}
+   * @see {@link DocHorizonResponse}
+   * @param index - an optional value to indicate which image you would like to get, if there
+   * are multile pages/images. If this is not given the first image will always be retrieved
+   *
+   * @returns a string containing image data
+   */
   export async function getRenderedImage(
     res: DocHorizonResponse,
     index?: number,
@@ -161,8 +206,18 @@ export namespace DocumentToolkitService {
 
     return "";
   }
-
-  //Get the file data or file ids of the results of a split operation
+  
+  /**
+   * Get file data OR file ids of the results of a Document Toolkit Split operation
+   *
+   * @param res - the DocHorizonResponse result of a split operation
+   * @see {@link split}
+   * @see {@link DocHorizonResponse}
+   *
+   * @returns a list of strings, either in the form of file data or file ids, for the result of
+   * the split operation
+   *
+   */
   export async function getSplitDocumentsList(
     res: DocHorizonResponse,
   ): Promise<string[]> {

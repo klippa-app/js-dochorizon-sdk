@@ -16,6 +16,11 @@ import { AsyncService } from "../Async.service";
 import { AdditionalBodyData } from "../../../Types/AdditionalBodyData";
 import { AsyncStatus } from "../Async.types";
 
+/**
+ * Financial Service
+ *
+ * @namespace
+ */
 export namespace FinancialService {
   const baseUrl = "/api/services/document_capturing/v1/financial";
   const routeMapping = {
@@ -64,9 +69,14 @@ export namespace FinancialService {
 
     return additionalBodyData;
   }
-
-  //Get available presets for the provided Api key
-  export async function getPresets() {
+  
+  /**
+   * function that returns the created financial presets for the provided API key
+   *
+   * @returns a DocHorizonResponse containing found presets for the provided api key
+   * @see {@link DocHorizonResponse}
+   */
+  export async function getPresets(): Promise<DocHorizonResponse> {
     const endpoint: Endpoint = {
       url: routeMapping.presets,
       method: "GET",
@@ -74,8 +84,13 @@ export namespace FinancialService {
 
     return await APIFunctionalities.request({ endpoint });
   }
-
-  //Get a list of available presets for the provided Api key
+  
+  /**
+   * function that returns a lis the created financial presets for the provided API key
+   *
+   * @returns a list of found preset strings for the provided API key
+   * @see {@link DocHorizonResponse}
+   */
   export async function getPresetList(): Promise<string[]> {
     const result = await getPresets();
     const presets: FinancialPresetsResult[] = unpackPresetData(result);
@@ -87,8 +102,12 @@ export namespace FinancialService {
 
     return presetList;
   }
-
-  //Get a list of enabled components from the provided preset
+  
+  /**
+   * function that returns the enabled components from a given preset
+   * @param preset - string indicating which preset to get enabled components from
+   * @returns list of enabled components for the preset
+   */
   export async function getEnabledComponentsFromPreset(
     preset: string,
   ): Promise<string[]> {
@@ -109,8 +128,18 @@ export namespace FinancialService {
 
     return enabledComponents;
   }
-
-  //Capture data from a financial document
+  
+  /**
+   * Capture data from a document using the financial model
+   *
+   * @param src - either a string indicating a document, or a DocHorizonDocument
+   * @see {@link DocHorizonDocument}
+   * @param options - an object containing any financial options to send with the request
+   * @see {@link FinancialOptions}
+   *
+   * @returns a DocHorizonResponse containing the results from the financial document capturer
+   * @see {@link DocHorizonResponse}
+   */
   export async function capture(
     src: string | string[] | DocHorizonDocument | DocHorizonDocument[],
     options?: FinancialOptions,
@@ -134,8 +163,14 @@ export namespace FinancialService {
     const JSONBody = JSONBodyBuilder.buildBody(endpoint, body);
     return await APIFunctionalities.request({ endpoint, body: JSONBody });
   }
-
-  //Capture data from a financial document asynchronously
+  
+  /**
+   * Capture data from a financial document asynchronously
+   * @param src - either a string indicating a document, or a DocHorizonDocument
+   * @see {@link DocHorizonDocument}
+   * @param options - an object containing any financial async options to send with the request
+   * @see {@link FinancialAsyncOptions}
+   */
   export async function captureAsync(
     src: string | string[] | DocHorizonDocument | DocHorizonDocument[],
     options?: FinancialAsyncOptions,
@@ -157,8 +192,13 @@ export namespace FinancialService {
       options,
     });
   }
-
-  //Get the status of a financial async job
+  
+  /**
+   * Get the status of a financial async job
+   * @param job_id - The job id of which you want to get the status
+   * @returns a DocHorizonResponse containing status information regarding the provided status
+   * @see {@link DocHorizonResponse}
+   */
   export async function getAsyncStatus(
     job_id: string,
   ): Promise<DocHorizonResponse> {
@@ -172,8 +212,13 @@ export namespace FinancialService {
       job_id,
     });
   }
-
-  //Get all available financial async jobs
+  
+  /**
+   * Get all existing financial async jobs for the used API key
+   *
+   * @returns a DocHorizonResponse containing all found financial async jobs
+   * @see {@link DocHorizonResponse}
+   */
   export async function getAsyncJobs(): Promise<DocHorizonResponse> {
     const endpoint: Endpoint = {
       url: routeMapping.captureAsyncOrGetAsyncList,
@@ -184,14 +229,26 @@ export namespace FinancialService {
       endpoint,
     });
   }
-
-  //Get a list of available financial async jobs
-  export async function getListOfJobIds(status?: AsyncStatus) {
+  
+  /**
+   * Get a list of all existing financial async jobs for the used API key
+   *
+   * @param status - an optional status to filter the results on
+   * @see {@link AsyncStatus} for the available statusses
+   * @returns a list containing all found financial async job ids
+   * @see {@link DocHorizonResponse}
+   */
+  export async function getListOfJobIds(status?: AsyncStatus): Promise<string[]> {
     const res = await getAsyncJobs();
     return await AsyncService.getListOfJobIds(res, status);
   }
-
-  //Remove a financial async job
+  
+  /**
+   * Remove a financial async job
+   * @param job_id - the id of the job to delete
+   * @returns a DocHorizonResponse containing information about the deletion
+   * @see {@link DocHorizonResponse}
+   */
   export async function removeAsyncJob(
     job_id: string,
   ): Promise<DocHorizonResponse> {
@@ -204,8 +261,12 @@ export namespace FinancialService {
       job_id,
     });
   }
-
-  //Get logs of a financial async job
+  
+  /**
+   * Get logs of a financial async job
+   * @param job_id - The job id of which you want to obtain logs
+   * @returns DocHorizonResponse data containing found logs for the provided job id
+   */
   export async function getLogsOfAsyncJob(
     job_id: string,
   ): Promise<DocHorizonResponse> {
@@ -218,8 +279,13 @@ export namespace FinancialService {
       job_id,
     });
   }
-
-  //Get results of a financial async job
+  
+  /**
+   * Get results of a financial async job
+   * @param job_id - The id of the job which you want to get the results from
+   * @returns a DocHorizonResponse containing results from the financial capturer
+   * @see {@link DocHorizonResponse}
+   */
   export async function getResultsOfAsyncJob(
     job_id: string,
   ): Promise<DocHorizonResponse> {
